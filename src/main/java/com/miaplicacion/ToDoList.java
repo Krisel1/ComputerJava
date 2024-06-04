@@ -3,54 +3,53 @@ package orderlist;
 import java.util.Scanner;
 
 public class ToDoList {
-    static String[] tareas = new String[100];
-    static boolean[] completadas = new boolean[100];
-    static int contador = 0;
+    static String[] tasks = new String[100];
+    static boolean[] completed = new boolean[100];
+    static int counter = 0;
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int opcion;
+        int option;
 
         do {
-            mostrarMenu();
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
-            ejecutarOpcion(opcion);
-        } while (opcion != 5);
+            showMenu();
+            option = scanner.nextInt();
+            scanner.nextLine();
+            executeOption(option);
+        } while (option != 5);
 
-        System.out.println("Saliendo de la aplicación...");
+        System.out.println("Exiting the application...");
     }
 
-    static void mostrarMenu() {
-        System.out.println("Bienvenido a la ToDo List");
+    static void showMenu() {
+        System.out.println("Welcome to the ToDo List");
         System.out.println("=========================");
-        System.out.println("1. Agregar Tarea");
-        System.out.println("2. Eliminar Tarea");
-        System.out.println("3. Listar Tareas");
-        System.out.println("4. Marcar Tarea como Completada");
-        System.out.println("5. Salir");
-        System.out.print("Seleccione una opción: ");
+        System.out.println("1. Add Task");
+        System.out.println("2. Delete Task");
+        System.out.println("3. List Tasks");
+        System.out.println("4. Mark Task as Completed");
+        System.out.println("5. Exit");
+        System.out.print("Select an option: ");
     }
 
-    static void ejecutarOpcion(int opcion) {
-        switch (opcion) {
+    static void executeOption(int option) {
+        switch (option) {
             case 1:
-                agregarTarea();
+                addTask();
                 break;
             case 2:
-                eliminarTarea();
+                deleteTask();
                 break;
             case 3:
-                listarTareas();
+                listTasks();
                 break;
             case 4:
-                marcarTareaCompletada();
+                markTaskCompleted();
                 break;
             case 5:
-                // Salir
                 break;
             default:
-                System.out.println("Opción inválida. Intente nuevamente.");
+                System.out.println("Invalid option. Please try again.");
         }
     }
 }
